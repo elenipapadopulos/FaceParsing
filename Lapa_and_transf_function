@@ -80,9 +80,10 @@ import numpy as np
 # Ensure you have train_dataset defined and loaded with your data
 
 for i in range(10):  # Change the range as needed
-    img = np.array(train_dataset[i][0].permute(1, 2, 0))
-    print(f"Image {i} is tensor: {isinstance(train_dataset[i][1], torch.Tensor)}")
-    mask = np.array(train_dataset[i][1])
+    t = train_dataset[i]
+    img = np.array(t[0].permute(1, 2, 0))
+    print(f"Image {i} is tensor: {isinstance(t[1], torch.Tensor)}")
+    mask = np.array(t[1])
 
     num_masks = mask.shape[0]
     fig, axes = plt.subplots(1, num_masks + 1, figsize=(15, 15))
